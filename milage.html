@@ -23,8 +23,8 @@
         h1 {
             position: absolute;
             left: 50%;
-            top: -53px;
-            width: 300px;
+            top: -42px;
+            width: 330px;
             transform: translateX(-50%);
             background-color: #F6F1F1;
             color: #19A7CE;
@@ -43,18 +43,20 @@
         label {
             display: block;
             margin-bottom: 10px;
+            position: absolute;
         }
         
         input, select {
             width: 50%;
             border: none;
             border-bottom: 1px solid #0074D9;
-            padding: 10px;
+        
         }
         
         input:focus, select:focus {
             border: 1px solid #0074D9;
             outline: none;
+            
         }
         
         select {
@@ -62,14 +64,16 @@
         }
         
         button {
-            margin: 20px auto;
-            width: 100px;
-            height: 40px;
-            background-color: #39CCCC;
-            color: #000000;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
+            text-transform: uppercase;
+          font-weight: bold;
+          display: block;
+          margin: 30px auto;
+          background: #AD133A;
+          border-radius: 5px;
+          width: 200px;
+          height: 50px;
+          font-size: 17px;
+          color: white;
         }
         
         .tip {
@@ -103,11 +107,3 @@
             let fromMilesNum = parseFloat(fromMiles);
             let milesNum = toMilesNum + fromMilesNum;
             let reimbursement = milesNum * 0.655;
-            reimbursement = reimbursement.toFixed(2);
-            document.getElementById('tip').innerHTML = "Miles: " + milesNum;
-            document.getElementById('total').innerHTML = "Total: $" + reimbursement;
-        }
-    </script>
-</body>
-
-</html>
