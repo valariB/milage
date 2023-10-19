@@ -2,80 +2,89 @@
 <html>
 
 <head>
-
     <style>
         body {
-            text-align: center;
-            font-family: 'Raleway', sans-serif;
+           background-color: #f7f7f7; 
+            min-height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
         }
-        
         .container {
-            width: 350px;
+            width: 300px;
             height: 300px;
             background-color: #19A7CE;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
-            border-radius: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px 2px #aaa; 
         }
-        
         h1 {
             position: absolute;
             left: 50%;
-            top: -42px;
-            width: 330px;
+            top: -83px;
+            width: 270px;
             transform: translateX(-50%);
             background-color: #F6F1F1;
-            color: #19A7CE;
-            font-weight: 800;
+            color: #AD133A;
+            font-weight: 900;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
-            font-size: 18px;
+            font-size: 20px;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
         }
-        
+               .output-container {
+            border: 2px solid #F6F1F1; /* You can change the color and width as needed */
+            padding: 2px; /* Add padding for spacing inside the box */
+            text-align: center;
+            margin-top: 5px; /* Add some space above the output elements */
+            border-radius: 5px; /* Add rounded corners to the box */
+        }
         .wrapper {
             padding: 20px;
         }
         
-        label {
+         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             position: absolute;
-        }
-        
+             margin: 0px 10px 10px 10px;
+         }
         input, select {
-            width: 50%;
-            border: none;
-            border-bottom: 1px solid #0074D9;
-        
+            font-size: 15px; 
+            padding:4px 0; 
+            font-weight: 900; 
+            text-align: center; 
+            background-color: #f7f7f7; 
+            border: 2px solid #ccc; 
+            border-radius: 6px; 
+             margin: 0px 10px 10px 45px;
         }
-        
         input:focus, select:focus {
             border: 1px solid #0074D9;
             outline: none;
-            
         }
-        
         select {
-            width: 50% !important;
+            width: 40% !important;
         }
-        
         button {
-            text-transform: uppercase;
+              text-transform: uppercase;
           font-weight: bold;
           display: block;
-          margin: 30px auto;
+          margin: 10px auto;
           background: #AD133A;
           border-radius: 5px;
-          width: 200px;
+          width: 155px;
           height: 50px;
           font-size: 17px;
           color: white;
+                        position: center;
+            cursor: pointer
         }
-        
         .tip {
             text-align: center;
             font-size: 18px;
@@ -89,21 +98,28 @@
     <div class="container">
         <h1>Mileage Reimbursement Calculator</h1>
         <div class="wrapper">
-            <label for="toMiles">To Miles</label>
-            <input id="toMiles" placeholder="To Miles" />
-            <label for="fromMiles">From Miles</label>
-            <input id="fromMiles" placeholder="From Miles" />
+            <input id="ToMiles" placeholder="To Miles" />
+
+            <input id="FromMiles" placeholder="From Miles" />
+
             <button onclick="calculateReimbursement()">Calculate</button>
-            <h2 id="tip">Miles: 0</h2>
-            <h2 id="total">Total: $0</h2>
+            <div class="output-container">
+                <h2 id="mileageResult">Miles: 0</h2>
+                <h2 id="totalReimbursement">Total: $0</h2>
+            </div>
+            <script>
+                function calculateReimbursement() {
+                    let toMiles = parseFloat(document.getElementById('ToMiles').value);
+                    let fromMiles = parseFloat(document.getElementById('FromMiles').value);
+                    let totalMiles = toMiles + fromMiles;
+                    let total = totalMiles * 0.655; // You can change the rate here
+                    total = total.toFixed(2);
+                    document.getElementById('mileageResult').innerHTML = "Miles: " + totalMiles;
+                    document.getElementById('totalReimbursement').innerHTML = "Total: $" + total;
+                }
+            </script>
         </div>
     </div>
+</body>
 
-    <script>
-        function calculateReimbursement() {
-            let toMiles = document.querySelector("#toMiles").value;
-            let fromMiles = document.querySelector("#fromMiles").value;
-            let toMilesNum = parseFloat(toMiles);
-            let fromMilesNum = parseFloat(fromMiles);
-            let milesNum = toMilesNum + fromMilesNum;
-            let reimbursement = milesNum * 0.655;
+</html>
