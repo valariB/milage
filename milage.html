@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
 
 <head>
 
     <style>
         body {
-          text-align: center;
-              font-family: 'Raleway', sans-serif;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
         }
         
         .container {
@@ -75,7 +76,6 @@
             display: none;
         }
         
-              
     </style>
 </head>
 
@@ -83,29 +83,27 @@
 
     <div class="container">
 
-        <h1>Milage Reimbursement Calculator </h1>
+        <h1>Mileage Reimbursement Calculator</h1>
         <div class="wrapper">
-
-
-
             <input id="Miles" placeholder="Total Miles" />
 
-            <button onclick="tip()">Calculate</button>
-            <h2 id="tip">Miles: 0</h1>
-                <h2 id="total">Total: $0</h1>
-                    <script>
-                        let Miles = document.querySelector("#Miles")
-                        
-                               function tip(){
-                        			let Miles = document.getElementById('Miles').value;
-                                   let billNum = parseInt(Miles);
-                                   let yourTip = billNum  ;
-                                   let total = yourTip * 0.655;
-                                    total = total.toFixed(2);
-                                   
-                        
-                                   document.getElementById('tip').innerHTML = "Miles: " + yourTip;
-                                   document.getElementById('total').innerHTML = "Total: $" + total;
-                               }
-                    </script>
+            <button onclick="calculateReimbursement()">Calculate</button>
+            <h2 id="tip">Miles: 0</h2>
+            <h2 id="total">Total: $0</h2>
+        </div>
+    </div>
+
+    <script>
+        function calculateReimbursement() {
+            let Miles = document.querySelector("#Miles").value;
+            let milesNum = parseFloat(Miles);
+            let reimbursement = milesNum * 0.655;
+            reimbursement = reimbursement.toFixed(2);
+        
+            document.getElementById('tip').innerHTML = "Miles: " + milesNum;
+            document.getElementById('total').innerHTML = "Total: $" + reimbursement;
+        }
+    </script>
 </body>
+
+</html>
