@@ -40,16 +40,19 @@
             padding: 20px;
         }
         
-        input,
-        select {
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input, select {
             width: 50%;
             border: none;
             border-bottom: 1px solid #0074D9;
             padding: 10px;
         }
         
-        input:focus,
-        select:focus {
+        input:focus, select:focus {
             border: 1px solid #0074D9;
             outline: none;
         }
@@ -75,18 +78,17 @@
             color: #900C3F;
             display: none;
         }
-        
     </style>
 </head>
 
 <body>
-
     <div class="container">
-
         <h1>Mileage Reimbursement Calculator</h1>
         <div class="wrapper">
-            <input id="Miles" placeholder="Total Miles" />
-
+            <label for="toMiles">To Miles</label>
+            <input id="toMiles" placeholder="To Miles" />
+            <label for="fromMiles">From Miles</label>
+            <input id="fromMiles" placeholder="From Miles" />
             <button onclick="calculateReimbursement()">Calculate</button>
             <h2 id="tip">Miles: 0</h2>
             <h2 id="total">Total: $0</h2>
@@ -95,11 +97,13 @@
 
     <script>
         function calculateReimbursement() {
-            let Miles = document.querySelector("#Miles").value;
-            let milesNum = parseFloat(Miles);
+            let toMiles = document.querySelector("#toMiles").value;
+            let fromMiles = document.querySelector("#fromMiles").value;
+            let toMilesNum = parseFloat(toMiles);
+            let fromMilesNum = parseFloat(fromMiles);
+            let milesNum = toMilesNum + fromMilesNum;
             let reimbursement = milesNum * 0.655;
             reimbursement = reimbursement.toFixed(2);
-        
             document.getElementById('tip').innerHTML = "Miles: " + milesNum;
             document.getElementById('total').innerHTML = "Total: $" + reimbursement;
         }
