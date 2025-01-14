@@ -114,7 +114,7 @@
                     let toMiles = parseFloat(document.getElementById('ToMiles').value);
                     let fromMiles = parseFloat(document.getElementById('FromMiles').value);
                     let totalMiles = toMiles + fromMiles;
-                    let total = totalMiles * 0.67; // You can change the rate here
+                    let total = totalMiles * 0.70; // You can change the rate here
                     total = total.toFixed(2);
                     document.getElementById('mileageResult').innerHTML = "Miles: " + totalMiles;
                     document.getElementById('totalReimbursement').innerHTML = "Total: $" + total;
